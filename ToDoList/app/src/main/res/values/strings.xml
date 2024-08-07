@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Todo List</string>
+    <string name="new_todo">New Todo</string>
+    <string name="clear">Clear</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+
+    <!-- Error Messages -->
+    <string name="error_failed_to_load_todos">Failed to load todos: %1$s</string>
+    <string name="error_failed_to_create_todo">Failed to create todo: %1$s</string>
+    <string name="error_failed_to_update_todo">Failed to update todo: %1$s</string>
+    <string name="error_failed_to_delete_todo">Failed to delete todo: %1$s</string>
+    <string name="error_failed_to_register_user">Failed to register user: %1$s</string>
+    <string name="error_failed_to_login_user">Failed to log in: %1$s</string>
+
+    <!-- UI Labels -->
+    <string name="label_new_todo">New Todo</string>
+    <string name="label_add_todo">Add To-Do</string>
+    <string name="label_name">Name</string>
+    <string name="label_email_address">Email Address</string>
+    <string name="label_password">Password</string>
+    <string name="label_create_account">Create Account</string>
+    <string name="label_login">Log In</string>
+    <string name="label_create_an_account">Create an account</string>
+
+    <!-- Dialog Messages -->
+    <string name="dialog_title_error">Error</string>
+    <string name="dialog_button_ok">OK</string>
+</resources>
