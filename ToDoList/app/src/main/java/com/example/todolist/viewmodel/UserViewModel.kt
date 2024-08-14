@@ -8,6 +8,7 @@ import com.example.todolist.network.ToDoApiService
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import retrofit2.HttpException
 
 class UserViewModel(private val apiService: ToDoApiService) : BaseViewModel() {
     private val _userId = MutableStateFlow<Long?>(null)
@@ -37,16 +38,22 @@ class UserViewModel(private val apiService: ToDoApiService) : BaseViewModel() {
             _isLoading.value = true
             viewModelScope.launch {
                 try {
-                    Log.d("get user to do", "${userId}")
+                    Log.d("getUserTodos", "Fetching todos for userId: $userId")
                     _userTodos.value = apiService.getUserTodos(userId, "Bearer $authToken", apiKey)
                 } catch (e: Exception) {
-                    _error.value = "Failed to load user todos: ${e.message}"
+                    val errorMessage = if (e is HttpException) {
+                        e.response()?.errorBody()?.string() ?: "Unknown error"
+                    } else {
+                        e.message ?: "Unknown error"
+                    }
+                    _error.value = "Failed to load user todos: $errorMessage"
                 } finally {
                     _isLoading.value = false
                 }
             }
         }
     }
+
 
     fun createUserTodo(description: String) {
         _userId.value?.let { userId ->
@@ -56,7 +63,15 @@ class UserViewModel(private val apiService: ToDoApiService) : BaseViewModel() {
                     val newTodo = apiService.createUserTodo(userId, "Bearer $authToken", apiKey, request)
                     _userTodos.value = _userTodos.value + newTodo
                 } catch (e: Exception) {
-                    _error.value = "Failed to create user todo: ${e.message}"
+                    val errorMessage = if (e is HttpException) {
+                        // Try to parse the error body
+                        e.response()?.errorBody()?.string() ?: "Unknown error"
+                    } else {
+                        // Fallback to the exception message
+                        e.message ?: "Unknown error"
+                    }
+
+                    _error.value = "Failed to create user todo: $errorMessage"
                 }
             }
         }
@@ -70,20 +85,15 @@ class UserViewModel(private val apiService: ToDoApiService) : BaseViewModel() {
                     val updatedTodo = apiService.updateUserTodo(userId, id, "Bearer $authToken",  apiKey,  request)
                     _userTodos.value = _userTodos.value.map { if (it.id == id) updatedTodo else it }
                 } catch (e: Exception) {
-                    _error.value = "Failed to update user todo: ${e.message}"
-                }
-            }
-        }
-    }
+                    val errorMessage = if (e is HttpException) {
+                        // Try to parse the error body
+                        e.response()?.errorBody()?.string() ?: "Unknown error"
+                    } else {
+                        // Fallback to the exception message
+                        e.message ?: "Unknown error"
+                    }
 
-    fun deleteUserTodo(id: Long) {
-        _userId.value?.let { userId ->
-            viewModelScope.launch {
-                try {
-                    apiService.deleteUserTodo(userId, id, "Bearer $authToken", apiKey)
-                    _userTodos.value = _userTodos.value.filter { it.id != id }
-                } catch (e: Exception) {
-                    _error.value = "Failed to delete user todo: ${e.message}"
+                    _error.value = "Failed to update user todo: $errorMessage"
                 }
             }
         }

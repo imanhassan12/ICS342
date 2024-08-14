@@ -70,20 +70,6 @@ class AuthViewModel(private val apiService: ToDoApiService) : BaseViewModel() {
         }
     }
 
-    fun logoutUser() {
-        _isLoading.value = true
-        viewModelScope.launch {
-            try {
-                apiService.logoutUser(apiKey)
-                _user.value = null
-            } catch (e: Exception) {
-                _error.value = "Failed to log out: ${e.message}"
-            } finally {
-                _isLoading.value = false
-            }
-        }
-    }
-
     fun clearError() {
         _error.value = null
     }
