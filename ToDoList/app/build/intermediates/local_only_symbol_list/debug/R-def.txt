@@ -1,5 +1,9 @@
 R_DEF: Internal format may change without notice
 local
+color Purple200
+color Purple500
+color Purple700
+color Teal200
 color black
 color purple_200
 color purple_500
@@ -14,6 +18,22 @@ mipmap ic_launcher_round
 string app_name
 string cancel
 string clear
+string dialog_button_ok
+string dialog_title_error
+string error_failed_to_create_todo
+string error_failed_to_delete_todo
+string error_failed_to_load_todos
+string error_failed_to_login_user
+string error_failed_to_register_user
+string error_failed_to_update_todo
+string label_add_todo
+string label_create_account
+string label_create_an_account
+string label_email_address
+string label_login
+string label_name
+string label_new_todo
+string label_password
 string new_todo
 string save
 style Theme.ToDoList

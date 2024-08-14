@@ -1,5 +1,12 @@
 com.example.todolist
+attr action
 attr alpha
+attr argType
+attr data
+attr dataPattern
+attr destination
+attr enterAnim
+attr exitAnim
 attr font
 attr fontProviderAuthority
 attr fontProviderCerts
@@ -11,11 +18,30 @@ attr fontProviderSystemFontFamily
 attr fontStyle
 attr fontVariationSettings
 attr fontWeight
+attr graph
 attr lStar
+attr launchSingleTop
+attr mimeType
+attr navGraph
 attr nestedScrollViewStyle
+attr nullable
+attr popEnterAnim
+attr popExitAnim
+attr popUpTo
+attr popUpToInclusive
+attr popUpToSaveState
 attr queryPatterns
+attr restoreState
+attr route
 attr shortcutMatchRequired
+attr startDestination
+attr targetPackage
 attr ttcIndex
+attr uri
+color Purple200
+color Purple500
+color Purple700
+color Teal200
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
 color black
@@ -131,6 +157,7 @@ id is_pooling_container_tag
 id italic
 id line1
 id line3
+id nav_controller_view_tag
 id normal
 id notification_background
 id notification_main_column
@@ -188,9 +215,25 @@ string close_drawer
 string close_sheet
 string default_error_message
 string default_popup_window_title
+string dialog_button_ok
+string dialog_title_error
 string dropdown_menu
+string error_failed_to_create_todo
+string error_failed_to_delete_todo
+string error_failed_to_load_todos
+string error_failed_to_login_user
+string error_failed_to_register_user
+string error_failed_to_update_todo
 string in_progress
 string indeterminate
+string label_add_todo
+string label_create_account
+string label_create_an_account
+string label_email_address
+string label_login
+string label_name
+string label_new_todo
+string label_password
 string m3c_bottom_sheet_collapse_description
 string m3c_bottom_sheet_dismiss_description
 string m3c_bottom_sheet_drag_handle_description
@@ -260,6 +303,8 @@ string status_bar_notification_info_overflow
 string switch_role
 string tab
 string template_percent
+string tooltip_description
+string tooltip_label
 style DialogWindowTheme
 style FloatingDialogTheme
 style FloatingDialogWindowTheme
@@ -271,11 +316,19 @@ style TextAppearance_Compat_Notification_Title
 style Theme_ToDoList
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
+styleable ActivityNavigator android_name action data dataPattern targetPackage
 styleable Capability queryPatterns shortcutMatchRequired
 styleable ColorStateListItem android_color android_alpha android_lStar alpha lStar
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery fontProviderSystemFontFamily
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable NavAction android_id destination enterAnim exitAnim launchSingleTop popEnterAnim popExitAnim popUpTo popUpToInclusive popUpToSaveState restoreState
+styleable NavArgument android_name android_defaultValue argType nullable
+styleable NavDeepLink android_autoVerify action mimeType uri
+styleable NavGraphNavigator startDestination
+styleable NavHost navGraph
+styleable NavInclude graph
+styleable Navigator android_label android_id route
 xml backup_rules
 xml data_extraction_rules

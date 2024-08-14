@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.todolist.app-mergeDebugResources-43:/values-v21/values-v21.xml",
+            "outputFile": "com.example.todolist.app-mergeDebugResources-48:/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "/Users/sewchen/.gradle/caches/transforms-4/436e956ba9c20f8699bd8fa8290ee73d/transformed/core-1.11.0-beta02/res/values-v21/values-v21.xml",
+                    "source": "/Users/sewchen/.gradle/caches/transforms-4/668c754e8a0b2b4a94cb20cb10c61143/transformed/core-1.13.1/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
